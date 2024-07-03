@@ -3,6 +3,7 @@
 import { PokemonResponse } from '@/types/pokemon.type';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import Link from 'next/link';
 import PokemonCard from '../PokemonCard';
 
 const getPokemons = async (): Promise<PokemonResponse> => {
@@ -27,7 +28,9 @@ function PokemonList() {
         <div className='grid grid-cols-4 place-items-center gap-y-10 my-10'>
             {pokemons?.map((pokemon) => (
                 <li key={pokemon.id} className='list-none'>
-                    <PokemonCard pokemon={pokemon} />
+                    <Link href={`/pokemons/${pokemon.id}`}>
+                        <PokemonCard pokemon={pokemon} />
+                    </Link>
                 </li>
             ))}
         </div>
