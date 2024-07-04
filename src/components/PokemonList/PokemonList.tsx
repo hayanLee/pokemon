@@ -6,7 +6,7 @@ import axios from 'axios';
 import Link from 'next/link';
 import PokemonCard from '../PokemonCard';
 
-const getPokemons = async (): Promise<PokemonResponse> => {
+const getPokemons = async () => {
     const response = await axios.get<PokemonResponse>('/api/pokemons');
     return response.data;
 };
