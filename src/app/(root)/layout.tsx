@@ -19,7 +19,7 @@ export default function RootLayout({
         <html lang='en'>
             <body className={`${inter.className} container mx-auto`}>
                 <QueryProvider>
-                    <div className='bg-red-50 h-screen py-10'>{children}</div>
+                    <div className='rounded-lg bg-blue-50 min-h-screen py-10'>{children}</div>
                 </QueryProvider>
             </body>
         </html>
