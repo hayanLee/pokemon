@@ -6,7 +6,6 @@ interface PokemonCardProps {
 }
 
 function PokemonCard({ pokemon }: PokemonCardProps) {
-    console.log(pokemon);
     return (
         <div className='w-80 h-80 p-5 rounded-md flex flex-col justify-center items-center hover:scale-105 transition border shadow-md bg-white'>
             <h2 className='font-semibold'>No. {pokemon.id}</h2>
