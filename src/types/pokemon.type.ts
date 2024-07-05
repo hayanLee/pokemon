@@ -10,7 +10,11 @@ export type Pokemon = {
     moves: { move: { name: string; korean_name: string } }[];
 };
 
-export type PokemonResponse = Pokemon[];
+export type PokemonResponse = {
+    data: Pokemon[];
+    totalPages: number;
+    hasNextPage: boolean;
+};
 
 export enum PokemonType {
     Fire = 'fire',

@@ -5,13 +5,17 @@ import { useState } from 'react';
 
 interface PokemonCardProps {
     pokemon: Pokemon;
+    cardRef?: React.Ref<HTMLDivElement>;
 }
 
-function PokemonCard({ pokemon }: PokemonCardProps) {
+function PokemonCard({ pokemon, cardRef }: PokemonCardProps) {
     const [isFlipped, setIsFlipped] = useState(false);
     const handleMouseInAndOut = () => setIsFlipped((prev) => !prev);
     return (
-        <div className='w-80 h-80 p-5 rounded-md flex flex-col justify-center items-center hover:scale-105 transition border shadow-md bg-white'>
+        <div
+            ref={cardRef}
+            className='w-80 h-80 p-5 rounded-md flex flex-col justify-center items-center hover:scale-105 transition border shadow-md bg-white'
+        >
             <h2 className='font-semibold'>No. {pokemon.id}</h2>
             <div className='relative w-full h-full' onMouseOver={handleMouseInAndOut} onMouseOut={handleMouseInAndOut}>
                 {!isFlipped ? (
