@@ -1,5 +1,6 @@
 import { getPokemon } from '@/app/_apis/pokemon';
 import Chip from '@/components/Chip';
+import { PokemonType } from '@/types/pokemon.type';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -14,8 +15,8 @@ async function PokemonDetailPage({ params }: { params: { id: string } }) {
                 <h3>({name})</h3>
             </div>
             <p>
-                키 : <span className='font-semibold'>{height / 10} m</span> 무게 :{' '}
-                <span className='font-semibold'>{weight / 10} kg</span>
+                키 : <span className='font-semibold'>{height / 10} m</span>
+                무게 :<span className='font-semibold'>{weight / 10} kg</span>
             </p>
             <div className='grid grid-cols-2 w-1/2 h-80'>
                 <div className='relative'>
@@ -33,7 +34,7 @@ async function PokemonDetailPage({ params }: { params: { id: string } }) {
 
             <div className='flex gap-x-2'>
                 {types.map((type, idx) => (
-                    <Chip key={idx} intent={type.type.name}>
+                    <Chip key={idx} intent={type.type.name as PokemonType}>
                         {type.type.korean_name}
                     </Chip>
                 ))}
@@ -46,9 +47,9 @@ async function PokemonDetailPage({ params }: { params: { id: string } }) {
                 ))}
             </div>
 
-            <button className='border bg-blue-900 text-white rounded p-2.5 font-semibold'>
-                <Link href='/'>뒤로가기</Link>
-            </button>
+            <Link href='/' className='border bg-blue-900 text-white rounded p-2.5 font-semibold'>
+                뒤로가기
+            </Link>
         </div>
     );
 }
